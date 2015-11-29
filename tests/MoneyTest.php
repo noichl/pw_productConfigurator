@@ -2,8 +2,8 @@
 namespace Noichl\ProductConfigurator;
 
 /**
- * @covers Money
- * @uses   Currency
+ * @covers \Noichl\ProductConfigurator\Money
+ * @uses   \Noichl\ProductConfigurator\Currency
  */
 class MoneyTest extends \PHPUnit_Framework_TestCase {
 

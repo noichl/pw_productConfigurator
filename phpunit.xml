@@ -12,7 +12,8 @@
   </testsuite>
 
   <logging>
-    <!--<log type="coverage-html" target="build/coverage"/>-->
+    <log type="coverage-html" target="build/tests/coverage"/>
+    <log type="coverage-clover" target="build/tests/coverage.xml" />
   </logging>
 
   <filter>

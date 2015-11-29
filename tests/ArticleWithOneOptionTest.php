@@ -2,10 +2,10 @@
 namespace Noichl\ProductConfigurator;
 
 /**
- * @covers ArticleWithOneOption
- * @covers Article
- * @uses   Money
- * @uses   Currency
+ * @covers \Noichl\ProductConfigurator\ArticleWithOneOption
+ * @covers \Noichl\ProductConfigurator\Article
+ * @uses   \Noichl\ProductConfigurator\Money
+ * @uses   \Noichl\ProductConfigurator\Currency
  */
 class ArticleWithOneOptionTest extends \PHPUnit_Framework_TestCase {
 

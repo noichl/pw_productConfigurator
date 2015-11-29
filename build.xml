@@ -12,7 +12,7 @@
         <property name="prepare.done" value="true"/>
     </target>
 
-    <target name="install" description="Installs dependencies and generate autoloader">
+    <target name="install" depends="prepare" description="Installs dependencies and generate autoloader">
         <exec executable="composer">
             <arg value="install"/>
         </exec>
@@ -29,7 +29,9 @@
     </target>
 
     <target name="testdox" depends="install" description="Create testdox">
-        <exec executable="${basedir}/vendor/bin/phpunit">
+        <exec executable="phpdbg">
+            <arg value="-qrr"/>
+            <arg path="${basedir}/vendor/bin/phpunit"/>
             <arg value="-c"/>
             <arg path="phpunit.xml"/>
             <arg path="tests"/>
@@ -38,7 +40,9 @@
     </target>
 
     <target name="unit" depends="install" description="Run unit tests with PHPUnit">
-        <exec executable="${basedir}/vendor/bin/phpunit">
+        <exec executable="phpdbg">
+            <arg value="-qrr"/>
+            <arg path="${basedir}/vendor/bin/phpunit"/>
             <arg value="-c"/>
             <arg path="phpunit.xml"/>
             <arg path="tests"/>

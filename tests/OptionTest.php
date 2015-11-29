@@ -2,9 +2,9 @@
 namespace Noichl\ProductConfigurator;
 
 /**
- * @covers Option
- * @uses   Money
- * @uses   Currency
+ * @covers \Noichl\ProductConfigurator\Option
+ * @uses   \Noichl\ProductConfigurator\Money
+ * @uses   \Noichl\ProductConfigurator\Currency
  */
 class OptionTest extends \PHPUnit_Framework_TestCase {
 

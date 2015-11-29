@@ -1,7 +1,12 @@
 # Professionelle Webentwicklung
 ## Übung ProductConfigurator
+### Voraussetzungen:
+* PHP7 mit phpdbg
+* Composer global
+* Apache ANT
+
 ### Installation:
-Auf UNIX-basierten System führen Sie
+Auf UNIX-basierten Systemen führen Sie
 ```
 ant
 ```
@@ -18,6 +23,7 @@ ant testdox
 ```
 ant cov
 ```
+
 
 ### Vorgaben:
 

@@ -1,6 +1,15 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator;
 
+use Noichl\ProductConfigurator\Exception\OptionMaxNumberExceededException;
+use Noichl\ProductConfigurator\Exception\OptionNotAllowedException;
+
+/**
+ * Class ArticleWithMultipleOptions
+ * Represents an Article with min 1 and max 3 options.
+ *
+ * @package Noichl\ProductConfigurator
+ */
 class ArticleWithMultipleOptions extends Article {
 
 	/**
@@ -19,6 +28,9 @@ class ArticleWithMultipleOptions extends Article {
 	}
 
 	/**
+	 * Gets the total price of an article.
+	 *
+	 * @override
 	 * @return Money
 	 */
 	public function totalPrice() :Money {
@@ -31,20 +43,31 @@ class ArticleWithMultipleOptions extends Article {
 		return $price;
 	}
 
-	public function addOption($option) {
+	/**
+	 * Adds an option
+	 * @param Option $option
+	 *
+	 * @throws \Noichl\ProductConfigurator\Exception\OptionMaxNumberExceededException
+	 * 				If max number of options for an article is exceeded.
+	 * @throws \Noichl\ProductConfigurator\Exception\OptionNotAllowedException
+	 *				If the added option is not allowed.
+	 */
+	public function addOption(Option $option) {
 		$this->ensureOptionIsNotAlreadyPresent($option);
 		$this->ensureMaximumNumberOfOptionsIsNotExceeded();
 
 		$this->options[] = $option;
 	}
 
-	private function ensureOptionIsNotAlreadyPresent($option) {
-		// @todo
+	private function ensureOptionIsNotAlreadyPresent(Option $option) {
+		if(in_array($option, $this->options, true)) {
+			throw new OptionNotAllowedException('Option is already added.', 1448824185288);
+		}
 	}
 
 	private function ensureMaximumNumberOfOptionsIsNotExceeded() {
-		if (count($this->options) == 2) {
-			// @todo
+		if (count($this->options) >= 3) {
+			throw new OptionMaxNumberExceededException('Maximal number of options is already obtained.', 1448825448486);
 		}
 	}
 }

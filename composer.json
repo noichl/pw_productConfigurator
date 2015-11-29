@@ -1,0 +1,22 @@
+{
+  "name": "noichl/productConfigurator",
+  "authors": [
+    {
+      "name": "Marinus Noichl",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Noichl\\ProductConfigurator\\": ["src/", "tests/"]
+    }
+  },
+  "require": {
+    "phpunit/phpunit": "^5.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*",
+    "phpmd/phpmd" : "@stable",
+    "typo3-ci/typo3flow": "dev-master"
+  }
+}

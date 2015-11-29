@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="build">
+    <target name="build" depends="install,unit"/>
+
+    <target name="clean" unless="clean.done" description="Cleanup build artifacts">
+        <delete dir="${basedir}/build"/>
+        <property name="clean.done" value="true"/>
+    </target>
+
+    <target name="prepare" unless="prepare.done" depends="clean" description="Prepare for build">
+        <mkdir dir="${basedir}/build"/>
+        <property name="prepare.done" value="true"/>
+    </target>
+
+    <target name="install" description="Installs dependencies and generate autoloader">
+        <exec executable="composer">
+            <arg value="install"/>
+        </exec>
+    </target>
+
+    <target name="cov" depends="install" description="Create code coverage report">
+        <exec executable="phpdbg">
+            <arg value="-qrr"/>
+            <arg path="${basedir}/vendor/bin/phpunit"/>
+            <arg value="-c"/>
+            <arg path="phpunit.xml"/>
+            <arg path="tests"/>
+        </exec>
+    </target>
+
+    <target name="testdox" depends="install" description="Create testdox">
+        <exec executable="${basedir}/vendor/bin/phpunit">
+            <arg value="-c"/>
+            <arg path="phpunit.xml"/>
+            <arg path="tests"/>
+            <arg value="--testdox"/>
+        </exec>
+    </target>
+
+    <target name="unit" depends="install" description="Run unit tests with PHPUnit">
+        <exec executable="${basedir}/vendor/bin/phpunit">
+            <arg value="-c"/>
+            <arg path="phpunit.xml"/>
+            <arg path="tests"/>
+        </exec>
+    </target>
+</project>
+

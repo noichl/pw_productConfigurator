@@ -18,11 +18,13 @@ class ArticleWithMultipleOptions extends Article {
 	private $options = [];
 
 	/**
+	 * @param \Noichl\ProductConfigurator\ArticleIdentifier $identifier
+	 * @param string $name
 	 * @param Money $basePrice
 	 * @param Option $option
 	 */
-	public function __construct(Money $basePrice, Option $option) {
-		parent::__construct($basePrice);
+	public function __construct(ArticleIdentifier $identifier, string $name, Money $basePrice, Option $option) {
+		parent::__construct($identifier, $name, $basePrice);
 
 		$this->options[] = $option;
 	}

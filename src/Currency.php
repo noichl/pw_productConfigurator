@@ -1,6 +1,12 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator;
 
+/**
+ * Class Currency
+ * Representing value-object class for currencies.
+ *
+ * @package Noichl\ProductConfigurator
+ */
 class Currency {
 
 	/**
@@ -9,6 +15,7 @@ class Currency {
 	private $currency;
 
 	/**
+	 * Short forms of all supported currencies.
 	 * @var string[]
 	 */
 	private $supportedCurrencies = ['EUR'];

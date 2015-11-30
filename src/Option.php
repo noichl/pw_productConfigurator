@@ -1,6 +1,13 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator;
 
+/**
+ * Class Option
+ * Representing an option which can be added to articles.
+ * Options are additional services available on some articles.
+ *
+ * @package Noichl\ProductConfigurator
+ */
 class Option {
 
 	/**

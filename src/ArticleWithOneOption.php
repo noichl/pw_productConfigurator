@@ -1,6 +1,12 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator;
 
+/**
+ * Class ArticleWithOneOption
+ * Represents an article with the ability to add one option.
+ *
+ * @package Noichl\ProductConfigurator
+ */
 class ArticleWithOneOption extends Article {
 
 	/**

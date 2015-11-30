@@ -64,5 +64,13 @@ class MoneyTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertFalse($eur->equals($usd));
 	}
+
+	/**
+	 * @expectedException \InvalidArgumentException
+	 * @expectedExceptionCode 1448870181490
+	 */
+	public function testWillNotSupportNegativeAmount() {
+		$negativeEur = new Money(-1, new Currency('EUR'));
+	}
 }
 

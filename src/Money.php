@@ -20,6 +20,8 @@ class Money {
 	 * @param Currency $currency
 	 */
 	public function __construct(int $amount, Currency $currency) {
+		$this->ensureAmountPositive($amount);
+
 		$this->amount = $amount;
 		$this->currency = $currency;
 	}
@@ -71,6 +73,12 @@ class Money {
 	private function ensureCurrenciesMatch(Currency $myCurrency, Currency $yourCurrency) {
 		if (!$myCurrency->equals($yourCurrency)) {
 			throw new \InvalidArgumentException('Currency mismatch');
+		}
+	}
+
+	private function ensureAmountPositive($amount) {
+		if($amount < 0) {
+			throw new \InvalidArgumentException('Negative amount not allowed', 1448870181490);
 		}
 	}
 }

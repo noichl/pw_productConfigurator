@@ -1,27 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="project" default="build">
+<project name="productConfigurator" default="build">
+    <property name="builddir" value="${basedir}/build"/>
+    <property name="bindir" value="${basedir}/vendor/bin"/>
+    <property name="composer" value="${basedir}/composer.phar"/>
+
     <target name="build" depends="install,unit"/>
 
     <target name="clean" unless="clean.done" description="Cleanup build artifacts">
-        <delete dir="${basedir}/build"/>
+        <delete dir="${builddir}"/>
         <property name="clean.done" value="true"/>
     </target>
-
+    
     <target name="prepare" unless="prepare.done" depends="clean" description="Prepare for build">
-        <mkdir dir="${basedir}/build"/>
+        <mkdir dir="${builddir}"/>
         <property name="prepare.done" value="true"/>
     </target>
 
-    <target name="install" depends="prepare" description="Install dependencies and generate autoloader">
-        <exec executable="composer">
+    <target name="php-check">
+        <condition property="php" value="php">
+            <not>
+                <isset property="${php}"/>
+            </not>
+        </condition>
+    </target>
+
+    <target name="composer-check" depends="prepare">
+        <available file="${composer}" property="composer.present"/>
+    </target>
+
+    <target name="composer-download" depends="composer-check" unless="composer.present">
+        <property name="composer.noselfupdate" value="true"/>
+        <get src="https://getcomposer.org/composer.phar" dest="${composer}"/>
+    </target>
+
+    <target name="composer-selfupdate" depends="php-check,composer-download" unless="composer.noselfupdate">
+        <exec executable="${php}">
+            <arg value="${composer}"/>
+            <arg value="self-update"/>
+            <arg value="--quiet"/>
+        </exec>
+    </target>
+
+    <target name="install" depends="composer-selfupdate" description="Run composer install">
+        <exec executable="${php}">
+            <arg value="${composer}"/>
             <arg value="install"/>
+        </exec>
+    </target>
+
+    <target name="update" depends="composer-selfupdate" description="Run composer update">
+        <exec executable="${php}">
+            <arg value="${composer}"/>
+            <arg value="update"/>
         </exec>
     </target>
 
     <target name="cov" depends="install" description="Create code coverage report using phpdbg">
         <exec executable="phpdbg">
             <arg value="-qrr"/>
-            <arg path="${basedir}/vendor/bin/phpunit"/>
+            <arg path="${bindir}/phpunit"/>
             <arg value="-c"/>
             <arg path="phpunit.xml"/>
             <arg path="tests"/>
@@ -31,7 +68,7 @@
     <target name="testdox" depends="install" description="Create testdox using phpdbg">
         <exec executable="phpdbg">
             <arg value="-qrr"/>
-            <arg path="${basedir}/vendor/bin/phpunit"/>
+            <arg path="${bindir}/phpunit"/>
             <arg value="-c"/>
             <arg path="phpunit.xml"/>
             <arg path="tests"/>
@@ -42,7 +79,7 @@
     <target name="unit" depends="install" description="Run unit tests with PHPUnit using phpdbg">
         <exec executable="phpdbg">
             <arg value="-qrr"/>
-            <arg path="${basedir}/vendor/bin/phpunit"/>
+            <arg path="${bindir}/phpunit"/>
             <arg value="-c"/>
             <arg path="phpunit.xml"/>
             <arg path="tests"/>

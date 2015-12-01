@@ -2,7 +2,6 @@
 ## Übung ProductConfigurator
 ### Voraussetzungen:
 * PHP7 mit phpdbg
-* Composer global
 * Apache ANT
 
 ### Installation:

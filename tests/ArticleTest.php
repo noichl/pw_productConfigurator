@@ -1,11 +1,12 @@
 <?php
 namespace Noichl\ProductConfigurator;
+use Noichl\ProductConfigurator\Article\ArticleIdentifier;
 
 /**
  * @covers \Noichl\ProductConfigurator\Article
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
- * @uses   \Noichl\ProductConfigurator\ArticleIdentifier
+ * @uses   \Noichl\ProductConfigurator\Article\ArticleIdentifier
  */
 class ArticleTest extends \PHPUnit_Framework_TestCase {
 

@@ -1,17 +1,18 @@
 <?php
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
+use Noichl\ProductConfigurator\Money;
 
 /**
- * @covers \Noichl\ProductConfigurator\ArticleWithOneOption
+ * @covers \Noichl\ProductConfigurator\Article\ArticleWithOneOption
  * @covers \Noichl\ProductConfigurator\Article
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
- * @uses   \Noichl\ProductConfigurator\ArticleIdentifier
+ * @uses   \Noichl\ProductConfigurator\Article\ArticleIdentifier
  */
 class ArticleWithOneOptionTest extends \PHPUnit_Framework_TestCase {
 
-	use CreateMoneyTrait;
-	use CreateOptionTrait;
+	use \Noichl\ProductConfigurator\TestHelper\CreateMoneyTrait;
+	use \Noichl\ProductConfigurator\TestHelper\CreateOptionTrait;
 
 	/**
 	 * @var ArticleIdentifier

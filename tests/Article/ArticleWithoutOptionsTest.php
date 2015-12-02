@@ -1,12 +1,14 @@
 <?php
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
+use Noichl\ProductConfigurator\Currency;
+use Noichl\ProductConfigurator\Money;
 
 /**
- * @covers \Noichl\ProductConfigurator\ArticleWithoutOptions
+ * @covers \Noichl\ProductConfigurator\Article\ArticleWithoutOptions
  * @covers \Noichl\ProductConfigurator\Article
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
- * @uses   \Noichl\ProductConfigurator\ArticleIdentifier
+ * @uses   \Noichl\ProductConfigurator\Article\ArticleIdentifier
  */
 class ArticleWithoutOptionsTest extends \PHPUnit_Framework_TestCase {
 

@@ -1,13 +1,12 @@
 <?php
 namespace Noichl\ProductConfigurator\Option;
-use Noichl\ProductConfigurator\CreateOptionRestrictionTrait;
 
 /**
  * @covers Noichl\ProductConfigurator\Option\OptionRestrictionCollection
  */
 class OptionRestrictionCollectionTest extends \PHPUnit_Framework_TestCase {
 
-	use CreateOptionRestrictionTrait;
+	use \Noichl\ProductConfigurator\TestHelper\CreateOptionRestrictionTrait;
 
 	/**
 	 * @var OptionRestrictionCollection

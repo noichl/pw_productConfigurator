@@ -1,6 +1,6 @@
 <?php
 
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
 
 /**
  * Class ArticleIdentifier

@@ -1,13 +1,14 @@
 <?php
-namespace Noichl\ProductConfigurator\Option;
-use Noichl\ProductConfigurator\CreateOptionTrait;
+namespace Noichl\ProductConfigurator\Option\Restriction;
+use Noichl\ProductConfigurator\Option\OptionRestriction;
+use Noichl\ProductConfigurator\Option\Restriction\NotWithRestriction;
 
 /**
- * @covers \Noichl\ProductConfigurator\Option\NotWithRestriction
+ * @covers \Noichl\ProductConfigurator\Option\Restriction\NotWithRestriction
  */
 class NotWithRestrictionTest extends \PHPUnit_Framework_TestCase {
 
-	use CreateOptionTrait;
+	use \Noichl\ProductConfigurator\TestHelper\CreateOptionTrait;
 
 	/**
 	 * @var \Noichl\ProductConfigurator\Option

@@ -1,17 +1,19 @@
 <?php
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
+use Noichl\ProductConfigurator\Currency;
+use Noichl\ProductConfigurator\Money;
 
 /**
- * @covers \Noichl\ProductConfigurator\ArticleWithMultipleOptions
+ * @covers \Noichl\ProductConfigurator\Article\ArticleWithMultipleOptions
  * @covers \Noichl\ProductConfigurator\Article
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
- * @uses   \Noichl\ProductConfigurator\ArticleIdentifier
+ * @uses   \Noichl\ProductConfigurator\Article\ArticleIdentifier
  */
 class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 
-	use CreateMoneyTrait;
-	use CreateOptionTrait;
+	use \Noichl\ProductConfigurator\TestHelper\CreateMoneyTrait;
+	use \Noichl\ProductConfigurator\TestHelper\CreateOptionTrait;
 
 	public function testBasePriceCanBeRetrieved() {
 
@@ -72,7 +74,7 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @expectedException \Noichl\ProductConfigurator\Exception\OptionNotAllowedException
+	 * @expectedException \Noichl\ProductConfigurator\Article\Exception\OptionNotAllowedException
 	 */
 	public function testSameOptionCantBeAddedTwice() {
 
@@ -99,7 +101,7 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 		$article->addOption($option2);
 		$article->addOption($option3);
 
-		$this->setExpectedException('\Noichl\ProductConfigurator\Exception\OptionMaxNumberExceededException');
+		$this->setExpectedException('\Noichl\ProductConfigurator\Article\Exception\OptionMaxNumberExceededException');
 		$article->addOption($option4);
 	}
 }

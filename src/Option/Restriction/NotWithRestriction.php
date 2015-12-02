@@ -1,7 +1,7 @@
 <?php
+namespace Noichl\ProductConfigurator\Option\Restriction;
 
-namespace Noichl\ProductConfigurator\Option;
-
+use Noichl\ProductConfigurator\Option\OptionRestriction;
 
 class NotWithRestriction extends OptionRestriction {
 
@@ -20,7 +20,7 @@ class NotWithRestriction extends OptionRestriction {
 	/**
 	 * @param \Noichl\ProductConfigurator\Option $option
 	 *
-	 * @return \Noichl\ProductConfigurator\Option\bool
+	 * @return bool
 	 */
 	public function validate(\Noichl\ProductConfigurator\Option $option): bool {
 		return $this->option !== $option;

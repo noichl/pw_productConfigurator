@@ -2,6 +2,8 @@
 namespace Noichl\ProductConfigurator;
 
 use Noichl\ProductConfigurator\Option\OptionRestrictionCollection;
+use Noichl\ProductConfigurator\TestHelper\CreateMoneyTrait;
+use Noichl\ProductConfigurator\TestHelper\CreateOptionRestrictionTrait;
 
 /**
  * @covers \Noichl\ProductConfigurator\Option

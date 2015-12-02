@@ -1,8 +1,8 @@
 <?php
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
 
 /**
- * @covers \Noichl\ProductConfigurator\ArticleIdentifier
+ * @covers \Noichl\ProductConfigurator\Article\ArticleIdentifier
  */
 class ArticleIdentifierTest extends \PHPUnit_Framework_TestCase {
 

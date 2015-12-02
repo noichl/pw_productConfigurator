@@ -1,10 +1,12 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator;
 
+use Noichl\ProductConfigurator\Article\ArticleIdentifier;
+
 abstract class Article {
 
 	/**
-	 * @var \Noichl\ProductConfigurator\ArticleIdentifier
+	 * @var \Noichl\ProductConfigurator\Article\ArticleIdentifier
 	 */
 	private $identifier;
 
@@ -19,8 +21,8 @@ abstract class Article {
 	private $basePrice;
 
 	/**
-	 * @param \Noichl\ProductConfigurator\ArticleIdentifier $identifier
-	 * @param \Noichl\ProductConfigurator\string|string $name
+	 * @param \Noichl\ProductConfigurator\Article\ArticleIdentifier $identifier
+	 * @param string $name
 	 * @param Money $basePrice
 	 */
 	public function __construct(ArticleIdentifier $identifier, string $name, Money $basePrice) {
@@ -30,7 +32,7 @@ abstract class Article {
 	}
 
 	/**
-	 * @return \Noichl\ProductConfigurator\ArticleIdentifier
+	 * @return \Noichl\ProductConfigurator\Article\ArticleIdentifier
 	 */
 	public function identifier(): ArticleIdentifier {
 		return $this->identifier;

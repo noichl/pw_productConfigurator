@@ -1,5 +1,7 @@
 <?php
 namespace Noichl\ProductConfigurator;
+use Noichl\ProductConfigurator\TestHelper\CreateMoneyTrait;
+use Noichl\ProductConfigurator\TestHelper\CreateUsdTrait;
 
 /**
  * @covers \Noichl\ProductConfigurator\Money

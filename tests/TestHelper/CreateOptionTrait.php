@@ -1,5 +1,7 @@
 <?php
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\TestHelper;
+
+use Noichl\ProductConfigurator\Option;
 
 trait CreateOptionTrait {
 

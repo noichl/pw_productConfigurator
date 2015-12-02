@@ -1,5 +1,9 @@
 <?php declare(strict_types = 1);
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
+
+use Noichl\ProductConfigurator\Article;
+use Noichl\ProductConfigurator\Money;
+use Noichl\ProductConfigurator\Option;
 
 /**
  * Class ArticleWithOneOption

@@ -1,8 +1,11 @@
 <?php declare(strict_types = 1);
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
 
-use Noichl\ProductConfigurator\Exception\OptionMaxNumberExceededException;
-use Noichl\ProductConfigurator\Exception\OptionNotAllowedException;
+use Noichl\ProductConfigurator\Article;
+use Noichl\ProductConfigurator\Article\Exception\OptionMaxNumberExceededException;
+use Noichl\ProductConfigurator\Article\Exception\OptionNotAllowedException;
+use Noichl\ProductConfigurator\Money;
+use Noichl\ProductConfigurator\Option;
 
 /**
  * Class ArticleWithMultipleOptions
@@ -18,7 +21,7 @@ class ArticleWithMultipleOptions extends Article {
 	private $options = [];
 
 	/**
-	 * @param \Noichl\ProductConfigurator\ArticleIdentifier $identifier
+	 * @param \Noichl\ProductConfigurator\Article\ArticleIdentifier $identifier
 	 * @param string $name
 	 * @param Money $basePrice
 	 * @param Option $option
@@ -47,12 +50,13 @@ class ArticleWithMultipleOptions extends Article {
 
 	/**
 	 * Adds an option
+	 *
 	 * @param Option $option
 	 *
-	 * @throws \Noichl\ProductConfigurator\Exception\OptionMaxNumberExceededException
-	 * 				If max number of options for an article is exceeded.
-	 * @throws \Noichl\ProductConfigurator\Exception\OptionNotAllowedException
-	 *				If the added option is not allowed.
+	 * @throws \Noichl\ProductConfigurator\Article\Exception\OptionMaxNumberExceededException
+	 *                If max number of options for an article is exceeded.
+	 * @throws \Noichl\ProductConfigurator\Article\Exception\OptionNotAllowedException
+	 *                If the added option is not allowed.
 	 */
 	public function addOption(Option $option) {
 		$this->ensureOptionIsNotAlreadyPresent($option);
@@ -62,7 +66,7 @@ class ArticleWithMultipleOptions extends Article {
 	}
 
 	private function ensureOptionIsNotAlreadyPresent(Option $option) {
-		if(in_array($option, $this->options, true)) {
+		if (in_array($option, $this->options, TRUE)) {
 			throw new OptionNotAllowedException('Option is already added.', 1448824185288);
 		}
 	}

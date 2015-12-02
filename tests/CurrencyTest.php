@@ -1,5 +1,6 @@
 <?php
 namespace Noichl\ProductConfigurator;
+use Noichl\ProductConfigurator\TestHelper\CreateUsdTrait;
 
 /**
  * @covers \Noichl\ProductConfigurator\Currency

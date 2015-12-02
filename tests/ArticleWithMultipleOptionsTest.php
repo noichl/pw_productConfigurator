@@ -11,6 +11,7 @@ namespace Noichl\ProductConfigurator;
 class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	use CreateMoneyTrait;
+	use CreateOptionTrait;
 
 	public function testBasePriceCanBeRetrieved() {
 
@@ -100,14 +101,5 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 
 		$this->setExpectedException('\Noichl\ProductConfigurator\Exception\OptionMaxNumberExceededException');
 		$article->addOption($option4);
-	}
-
-	/**
-	 * @return \PHPUnit_Framework_MockObject_MockObject|Option
-	 */
-	private function createOption() {
-		return $this->getMockBuilder(Option::class)
-					->disableOriginalConstructor()
-					->getMock();
 	}
 }

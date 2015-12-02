@@ -11,6 +11,7 @@ namespace Noichl\ProductConfigurator;
 class ArticleWithOneOptionTest extends \PHPUnit_Framework_TestCase {
 
 	use CreateMoneyTrait;
+	use CreateOptionTrait;
 
 	/**
 	 * @var ArticleIdentifier
@@ -54,14 +55,5 @@ class ArticleWithOneOptionTest extends \PHPUnit_Framework_TestCase {
 		$this->article->setOption($option);
 
 		$this->assertTrue($this->basePrice->addTo($optionPrice)->equals($this->article->totalPrice()));
-	}
-
-	/**
-	 * @return \PHPUnit_Framework_MockObject_MockObject|Option
-	 */
-	private function createOption() {
-		return $this->getMockBuilder(Option::class)
-			->disableOriginalConstructor()
-			->getMock();
 	}
 }

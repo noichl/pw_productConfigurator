@@ -11,15 +11,15 @@
     <directory suffix="Test.php">tests</directory>
   </testsuite>
 
-  <logging>
-    <log type="coverage-html" target="build/tests/coverage"/>
-    <log type="coverage-clover" target="build/tests/coverage.xml" />
-  </logging>
-
   <filter>
     <whitelist addUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">src</directory>
     </whitelist>
   </filter>
+
+  <logging>
+    <log type="coverage-html" target="build/tests/coverage"/>
+    <log type="coverage-clover" target="build/tests/coverage.xml" />
+  </logging>
 </phpunit>
 

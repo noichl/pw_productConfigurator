@@ -1,10 +1,9 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator\Article;
 
-use Noichl\ProductConfigurator\Article;
 use Noichl\ProductConfigurator\Money;
-use Noichl\ProductConfigurator\Option;
-use Noichl\ProductConfigurator\OptionSet;
+use Noichl\ProductConfigurator\Option\Option;
+use Noichl\ProductConfigurator\OptionSet\OptionSet;
 
 /**
  * Class ArticleWithMultipleOptions
@@ -15,7 +14,7 @@ use Noichl\ProductConfigurator\OptionSet;
 class ArticleWithMultipleOptions extends Article {
 
 	/**
-	 * @var OptionSet
+	 * @var \Noichl\ProductConfigurator\OptionSet\OptionSet
 	 */
 	private $options;
 

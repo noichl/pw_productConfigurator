@@ -1,15 +1,15 @@
 <?php
 namespace Noichl\ProductConfigurator\TestHelper;
 
-use Noichl\ProductConfigurator\Option\OptionRestriction;
+use Noichl\ProductConfigurator\Option\Restriction\Restriction;
 
 trait CreateOptionRestrictionTrait {
 
 	/**
-	 * @return OptionRestriction | \PHPUnit_Framework_MockObject_MockObject
+	 * @return \Noichl\ProductConfigurator\Option\Restriction\Restriction | \PHPUnit_Framework_MockObject_MockObject
 	 */
 	private function createOptionRestriction() {
-		return $this->getMockBuilder(OptionRestriction::class)
+		return $this->getMockBuilder(Restriction::class)
 					->disableOriginalConstructor()
 					->getMock();
 	}

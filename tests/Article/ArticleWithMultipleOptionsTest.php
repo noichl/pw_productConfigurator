@@ -5,11 +5,11 @@ use Noichl\ProductConfigurator\Money;
 
 /**
  * @covers \Noichl\ProductConfigurator\Article\ArticleWithMultipleOptions
- * @covers \Noichl\ProductConfigurator\Article
+ * @covers \Noichl\ProductConfigurator\Article\Article
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
  * @uses   \Noichl\ProductConfigurator\Article\ArticleIdentifier
- * @uses   \Noichl\ProductConfigurator\OptionSet
+ * @uses   \Noichl\ProductConfigurator\OptionSet\OptionSet
  */
 class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 

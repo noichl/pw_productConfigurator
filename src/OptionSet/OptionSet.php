@@ -1,7 +1,8 @@
 <?php
 
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\OptionSet;
 
+use Noichl\ProductConfigurator\Option\Option;
 use Noichl\ProductConfigurator\OptionSet\Exception\OptionMaxNumberExceededException;
 use Noichl\ProductConfigurator\OptionSet\Exception\OptionNotAllowedException;
 
@@ -23,7 +24,7 @@ class OptionSet implements \IteratorAggregate, \Countable {
 
 
 	/**
-	 * @param \Noichl\ProductConfigurator\Option $option
+	 * @param \Noichl\ProductConfigurator\Option\Option $option
 	 *
 	 * @throws \Noichl\ProductConfigurator\OptionSet\Exception\OptionMaxNumberExceededException
 	 * @throws \Noichl\ProductConfigurator\OptionSet\Exception\OptionNotAllowedException
@@ -50,7 +51,7 @@ class OptionSet implements \IteratorAggregate, \Countable {
 	}
 
 	/**
-	 * @param \Noichl\ProductConfigurator\Option $option
+	 * @param \Noichl\ProductConfigurator\Option\Option $option
 	 *
 	 * @throws \Noichl\ProductConfigurator\OptionSet\Exception\OptionNotAllowedException
 	 */
@@ -64,7 +65,7 @@ class OptionSet implements \IteratorAggregate, \Countable {
 	 * @throws \Noichl\ProductConfigurator\OptionSet\Exception\OptionMaxNumberExceededException
 	 */
 	private function ensureMaximumNumberOfOptionsIsNotExceeded() {
-		if ($this->maxItems === null){
+		if ($this->maxItems === null) {
 			return;
 		}
 

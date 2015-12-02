@@ -1,9 +1,8 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator\Article;
 
-use Noichl\ProductConfigurator\Article;
 use Noichl\ProductConfigurator\Money;
-use Noichl\ProductConfigurator\Option;
+use Noichl\ProductConfigurator\Option\Option;
 
 /**
  * Class ArticleWithOneOption
@@ -14,19 +13,19 @@ use Noichl\ProductConfigurator\Option;
 class ArticleWithOneOption extends Article {
 
 	/**
-	 * @var Option
+	 * @var \Noichl\ProductConfigurator\Option\Option
 	 */
 	private $option;
 
 	/**
-	 * @param Option $option
+	 * @param \Noichl\ProductConfigurator\Option\Option $option
 	 */
 	public function setOption(Option $option) {
 		$this->option = $option;
 	}
 
 	/**
-	 * @return Option
+	 * @return \Noichl\ProductConfigurator\Option\Option
 	 */
 	public function getOption() :Option {
 		return $this->option;

@@ -5,7 +5,7 @@ use Noichl\ProductConfigurator\Money;
 
 /**
  * @covers \Noichl\ProductConfigurator\Article\ArticleWithoutOptions
- * @covers \Noichl\ProductConfigurator\Article
+ * @covers \Noichl\ProductConfigurator\Article\Article
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
  * @uses   \Noichl\ProductConfigurator\Article\ArticleIdentifier

@@ -1,26 +1,25 @@
 <?php
-
-namespace Noichl\ProductConfigurator\Option;
+namespace Noichl\ProductConfigurator\Option\Restriction;
 
 /**
- * Class OptionRestrictionCollection
+ * Class RestrictionCollection
  * Class Representing an Collection for OptionRestrictions
  *
- * @see OptionRestriction
+ * @see Restriction
  *
- * @package Noichl\ProductConfigurator\Option
+ * @package Noichl\ProductConfigurator\Option\Option
  */
-class OptionRestrictionCollection implements \IteratorAggregate, \Countable {
+class RestrictionCollection implements \IteratorAggregate, \Countable {
 
 	/**
-	 * @var OptionRestriction[]
+	 * @var Restriction[]
 	 */
 	private $optionRestrictions = [];
 
 	/**
-	 * @param \Noichl\ProductConfigurator\Option\OptionRestriction $optionRestriction
+	 * @param \Noichl\ProductConfigurator\Option\Restriction\Restriction $optionRestriction
 	 */
-	public function add(OptionRestriction $optionRestriction) {
+	public function add(Restriction $optionRestriction) {
 		$this->optionRestrictions[] = $optionRestriction;
 	}
 

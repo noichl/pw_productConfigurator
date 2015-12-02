@@ -1,7 +1,9 @@
 <?php declare(strict_types = 1);
-namespace Noichl\ProductConfigurator;
-use Noichl\ProductConfigurator\Option\OptionRestriction;
-use Noichl\ProductConfigurator\Option\OptionRestrictionCollection;
+namespace Noichl\ProductConfigurator\Option;
+
+use Noichl\ProductConfigurator\Money;
+use Noichl\ProductConfigurator\Option\Restriction\Restriction;
+use Noichl\ProductConfigurator\Option\Restriction\RestrictionCollection;
 
 /**
  * Class Option
@@ -18,15 +20,15 @@ class Option {
 	private $price;
 
 	/**
-	 * @var OptionRestrictionCollection
+	 * @var RestrictionCollection
 	 */
 	private $restrictions;
 
 	/**
 	 * @param \Noichl\ProductConfigurator\Money $price
-	 * @param \Noichl\ProductConfigurator\Option\OptionRestrictionCollection $restrictions
+	 * @param \Noichl\ProductConfigurator\Option\Restriction\RestrictionCollection $restrictions
 	 */
-	public function __construct(Money $price, OptionRestrictionCollection $restrictions) {
+	public function __construct(Money $price, RestrictionCollection $restrictions) {
 		$this->price = $price;
 		$this->restrictions = $restrictions;
 	}
@@ -39,9 +41,9 @@ class Option {
 	}
 
 	/**
-	 * @param \Noichl\ProductConfigurator\Option\OptionRestriction $restriction
+	 * @param \Noichl\ProductConfigurator\Option\Restriction\Restriction $restriction
 	 */
-	public function addRestriction(OptionRestriction $restriction) {
+	public function addRestriction(Restriction $restriction) {
 		$this->restrictions->add($restriction);
 	}
 }

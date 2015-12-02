@@ -1,7 +1,6 @@
 <?php declare(strict_types = 1);
 namespace Noichl\ProductConfigurator\Article;
 
-use Noichl\ProductConfigurator\Article;
 use Noichl\ProductConfigurator\Money;
 
 /**

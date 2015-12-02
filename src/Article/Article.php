@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Article;
 
-use Noichl\ProductConfigurator\Article\ArticleIdentifier;
+use Noichl\ProductConfigurator\Money;
 
 abstract class Article {
 

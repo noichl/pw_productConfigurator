@@ -1,21 +1,21 @@
 <?php
-namespace Noichl\ProductConfigurator\Option;
+namespace Noichl\ProductConfigurator\Option\Restriction;
 
 /**
- * @covers Noichl\ProductConfigurator\Option\OptionRestrictionCollection
+ * @covers Noichl\ProductConfigurator\Option\Restriction\RestrictionCollection
  */
-class OptionRestrictionCollectionTest extends \PHPUnit_Framework_TestCase {
+class RestrictionCollectionTest extends \PHPUnit_Framework_TestCase {
 
 	use \Noichl\ProductConfigurator\TestHelper\CreateOptionRestrictionTrait;
 
 	/**
-	 * @var OptionRestrictionCollection
+	 * @var RestrictionCollection
 	 */
 	private $collection;
 
 	public function setUp() {
 
-		$this->collection = new OptionRestrictionCollection();
+		$this->collection = new RestrictionCollection();
 	}
 
 	public function testCanAddRestrictions() {

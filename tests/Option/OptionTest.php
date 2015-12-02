@@ -1,12 +1,13 @@
 <?php
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\Option;
 
-use Noichl\ProductConfigurator\Option\OptionRestrictionCollection;
+use Noichl\ProductConfigurator\Money;
+use Noichl\ProductConfigurator\Option\Restriction\RestrictionCollection;
 use Noichl\ProductConfigurator\TestHelper\CreateMoneyTrait;
 use Noichl\ProductConfigurator\TestHelper\CreateOptionRestrictionTrait;
 
 /**
- * @covers \Noichl\ProductConfigurator\Option
+ * @covers \Noichl\ProductConfigurator\Option\Option
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
  */
@@ -25,13 +26,13 @@ class OptionTest extends \PHPUnit_Framework_TestCase {
 	private $option;
 
 	/**
-	 * @var OptionRestrictionCollection | \PHPUnit_Framework_MockObject_MockObject
+	 * @var RestrictionCollection | \PHPUnit_Framework_MockObject_MockObject
 	 */
 	private $restrictionCollection;
 
 	public function setUp() {
 		$this->price = $this->createMoney();
-		$this->restrictionCollection = $this->getMockBuilder(OptionRestrictionCollection::class)
+		$this->restrictionCollection = $this->getMockBuilder(RestrictionCollection::class)
 											->disableOriginalConstructor()
 											->getMock();
 		$this->option = new Option($this->price, $this->restrictionCollection);

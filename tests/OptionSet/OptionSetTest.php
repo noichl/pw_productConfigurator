@@ -1,12 +1,12 @@
 <?php
-namespace Noichl\ProductConfigurator;
+namespace Noichl\ProductConfigurator\OptionSet;
 
 use Noichl\ProductConfigurator\OptionSet\Exception\OptionMaxNumberExceededException;
 use Noichl\ProductConfigurator\OptionSet\Exception\OptionNotAllowedException;
 use Noichl\ProductConfigurator\TestHelper\CreateOptionTrait;
 
 /**
- * @covers \Noichl\ProductConfigurator\OptionSet
+ * @covers \Noichl\ProductConfigurator\OptionSet\OptionSet
  */
 class OptionSetTest extends \PHPUnit_Framework_TestCase {
 

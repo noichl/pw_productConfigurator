@@ -9,25 +9,37 @@ namespace Noichl\ProductConfigurator;
  */
 class ArticleTest extends \PHPUnit_Framework_TestCase {
 
+	/**
+	 * @var string
+	 */
+	private $name = "Test Name";
+
+	/**
+	 * @var ArticleIdentifier
+	 */
+	private $identifier;
+
+	/**
+	 * @var Money
+	 */
+	private $price;
+
+	/**
+	 * @var Article | \PHPUnit_Framework_MockObject_MockObject
+	 */
+	private $article;
+
+	public function setUp() {
+		$this->identifier = new ArticleIdentifier('TestId');
+		$this->price = new Money(1, new Currency('EUR'));
+		$this->article = $this->getMockForAbstractClass(Article::class, [$this->identifier, $this->name, $this->price]);
+	}
+
 	public function testNameCanBeRetrieved() {
-
-		$identifier = new ArticleIdentifier('TestId');
-		$name = "Test Name";
-		$price = new Money(1, new Currency('EUR'));
-		$article = $this->getMockForAbstractClass(Article::class, [$identifier, $name, $price]);
-
-		$this->assertEquals($name, $article->name());
+		$this->assertEquals($this->name, $this->article->name());
 	}
 
 	public function testIdentifierCanBeRetrieved() {
-
-		$name = "Test Name";
-		$price = new Money(1, new Currency('EUR'));
-		$identifier = new ArticleIdentifier('TestId');
-
-		/** @var  \PHPUnit_Framework_MockObject_MockObject|Article $article */
-		$article = $article = $this->getMockForAbstractClass(Article::class, [$identifier, $name, $price]);
-
-		$this->assertEquals($identifier, $article->identifier());
+		$this->assertEquals($this->identifier, $this->article->identifier());
 	}
 }

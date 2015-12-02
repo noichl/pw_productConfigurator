@@ -12,38 +12,48 @@ class ArticleWithOneOptionTest extends \PHPUnit_Framework_TestCase {
 
 	use CreateMoneyTrait;
 
-	public function testBasePriceCanBeRetrieved() {
-		$identifier = new ArticleIdentifier('TestID');
-		$price = new Money(1, new Currency('EUR'));
-		$article = new ArticleWithOneOption($identifier, 'TestArticle',$price);
+	/**
+	 * @var ArticleIdentifier
+	 */
+	private $identifier;
 
-		$this->assertTrue($price->equals($article->basePrice()));
+	/**
+	 * @var Money
+	 */
+	private $basePrice;
+
+	/**
+	 * @var ArticleWithOneOption
+	 */
+	private $article;
+
+	public function setUp() {
+		$this->identifier = new ArticleIdentifier('TestID');
+		$this->basePrice = $this->createMoney();
+		$this->article = new ArticleWithOneOption($this->identifier, 'TestArticle', $this->basePrice);
+	}
+
+	public function testBasePriceCanBeRetrieved() {
+		$this->assertTrue($this->basePrice->equals($this->article->basePrice()));
 	}
 
 	public function testOptionCanBeSet() {
-		$identifier = new ArticleIdentifier('TestID');
-		$price = new Money(1, new Currency('EUR'));
 
 		$option = $this->createOption();
+		$this->article->setOption($option);
 
-		$article = new ArticleWithOneOption($identifier, 'TestArticle', $price);
-		$article->setOption($option);
-
-		$this->assertSame($option, $article->getOption());
+		$this->assertSame($option, $this->article->getOption());
 	}
 
 	public function testTotalPriceWithOptionCanBeRetrieved() {
-		$identifier = new ArticleIdentifier('TestID');
-		$optionPrice = $this->createMoney();
-		$basePrice = $this->createMoney();
 
+		$optionPrice = $this->createMoney();
 		$option = $this->createOption();
 		$option->method('price')->willReturn($optionPrice);
 
-		$article = new ArticleWithOneOption($identifier, 'TestArticle', $basePrice);
-		$article->setOption($option);
+		$this->article->setOption($option);
 
-		$this->assertTrue($basePrice->addTo($optionPrice)->equals($article->totalPrice()));
+		$this->assertTrue($this->basePrice->addTo($optionPrice)->equals($this->article->totalPrice()));
 	}
 
 	/**

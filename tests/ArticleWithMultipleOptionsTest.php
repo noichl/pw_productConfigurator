@@ -14,30 +14,30 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	public function testBasePriceCanBeRetrieved() {
 
-		$identfier = new ArticleIdentifier('testId');
+		$identifier = new ArticleIdentifier('testId');
 		$price = $this->createMoney();
-		$article = new ArticleWithMultipleOptions($identfier, 'TestArticle', $price, $this->createOption());
+		$article = new ArticleWithMultipleOptions($identifier, 'TestArticle', $price, $this->createOption());
 
 		$this->assertTrue($price->equals($article->basePrice()));
 	}
 
 	public function testTotalPriceWithOneOptionCanBeRetrieved() {
 
-		$identfier = new ArticleIdentifier('testId');
+		$identifier = new ArticleIdentifier('testId');
 		$optionPrice = $this->createMoney();
 		$basePrice = $this->createMoney();
 
 		$option = $this->createOption();
 		$option->method('price')->willReturn($optionPrice);
 
-		$article = new ArticleWithMultipleOptions($identfier, 'TestArticle', $basePrice, $option);
+		$article = new ArticleWithMultipleOptions($identifier, 'TestArticle', $basePrice, $option);
 
 		$this->assertTrue($basePrice->addTo($optionPrice)->equals($article->totalPrice()));
 	}
 
 	public function testTotalPriceWithTwoOptionsCanBeRetrieved() {
 
-		$identfier = new ArticleIdentifier('testId');
+		$identifier = new ArticleIdentifier('testId');
 		$optionPrice1 = $this->createMoney();
 		$optionPrice2 = $this->createMoney();
 		$basePrice = $this->createMoney();
@@ -48,7 +48,7 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 		$option2 = $this->createOption();
 		$option2->method('price')->willReturn($optionPrice2);
 
-		$article = new ArticleWithMultipleOptions($identfier, 'TestArticle', $basePrice, $option1);
+		$article = new ArticleWithMultipleOptions($identifier, 'TestArticle', $basePrice, $option1);
 		$article->addOption($option2);
 
 		$this->assertTrue($basePrice->addTo($optionPrice1)->addTo($optionPrice2)->equals($article->totalPrice()));
@@ -57,13 +57,13 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	public function testTwoDifferentOptionsCanBeAdded() {
 
-		$identfier = new ArticleIdentifier('testId');
+		$identifier = new ArticleIdentifier('testId');
 		$price = new Money(1, new Currency('EUR'));
 
 		$option1 = $this->createOption();
 		$option2 = $this->createOption();
 
-		$article = new ArticleWithMultipleOptions($identfier, 'TestArticle', $price, $option1);
+		$article = new ArticleWithMultipleOptions($identifier, 'TestArticle', $price, $option1);
 		$article->addOption($option2);
 
 		$this->assertAttributeContains($option1, 'options', $article); //tests implementation?
@@ -86,7 +86,7 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 
 	public function testNotMoreThanThreeOptionsCanBeAdded() {
 
-		$identfier = new ArticleIdentifier('testId');
+		$identifier = new ArticleIdentifier('testId');
 		$price = new Money(1, new Currency('EUR'));
 
 		$option1 = $this->createOption();
@@ -94,7 +94,7 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 		$option3 = $this->createOption();
 		$option4 = $this->createOption();
 
-		$article = new ArticleWithMultipleOptions($identfier, 'TestArticle', $price, $option1);
+		$article = new ArticleWithMultipleOptions($identifier, 'TestArticle', $price, $option1);
 		$article->addOption($option2);
 		$article->addOption($option3);
 

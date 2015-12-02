@@ -2,10 +2,9 @@
 namespace Noichl\ProductConfigurator\Article;
 
 use Noichl\ProductConfigurator\Article;
-use Noichl\ProductConfigurator\Article\Exception\OptionMaxNumberExceededException;
-use Noichl\ProductConfigurator\Article\Exception\OptionNotAllowedException;
 use Noichl\ProductConfigurator\Money;
 use Noichl\ProductConfigurator\Option;
+use Noichl\ProductConfigurator\OptionSet;
 
 /**
  * Class ArticleWithMultipleOptions
@@ -16,9 +15,9 @@ use Noichl\ProductConfigurator\Option;
 class ArticleWithMultipleOptions extends Article {
 
 	/**
-	 * @var Option[]
+	 * @var OptionSet
 	 */
-	private $options = [];
+	private $options;
 
 	/**
 	 * @param \Noichl\ProductConfigurator\Article\ArticleIdentifier $identifier
@@ -29,7 +28,8 @@ class ArticleWithMultipleOptions extends Article {
 	public function __construct(ArticleIdentifier $identifier, string $name, Money $basePrice, Option $option) {
 		parent::__construct($identifier, $name, $basePrice);
 
-		$this->options[] = $option;
+		$this->options = new OptionSet(3);
+		$this->options->add($option);
 	}
 
 	/**
@@ -53,27 +53,12 @@ class ArticleWithMultipleOptions extends Article {
 	 *
 	 * @param Option $option
 	 *
-	 * @throws \Noichl\ProductConfigurator\Article\Exception\OptionMaxNumberExceededException
+	 * @throws \Noichl\ProductConfigurator\OptionSet\Exception\OptionMaxNumberExceededException
 	 *                If max number of options for an article is exceeded.
-	 * @throws \Noichl\ProductConfigurator\Article\Exception\OptionNotAllowedException
+	 * @throws \Noichl\ProductConfigurator\OptionSet\Exception\OptionNotAllowedException
 	 *                If the added option is not allowed.
 	 */
 	public function addOption(Option $option) {
-		$this->ensureOptionIsNotAlreadyPresent($option);
-		$this->ensureMaximumNumberOfOptionsIsNotExceeded();
-
-		$this->options[] = $option;
-	}
-
-	private function ensureOptionIsNotAlreadyPresent(Option $option) {
-		if (in_array($option, $this->options, TRUE)) {
-			throw new OptionNotAllowedException('Option is already added.', 1448824185288);
-		}
-	}
-
-	private function ensureMaximumNumberOfOptionsIsNotExceeded() {
-		if (count($this->options) >= 3) {
-			throw new OptionMaxNumberExceededException('Maximal number of options is already obtained.', 1448825448486);
-		}
+		$this->options->add($option);
 	}
 }

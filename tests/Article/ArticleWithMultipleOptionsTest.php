@@ -9,6 +9,7 @@ use Noichl\ProductConfigurator\Money;
  * @uses   \Noichl\ProductConfigurator\Money
  * @uses   \Noichl\ProductConfigurator\Currency
  * @uses   \Noichl\ProductConfigurator\Article\ArticleIdentifier
+ * @uses   \Noichl\ProductConfigurator\OptionSet
  */
 class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 
@@ -74,7 +75,7 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @expectedException \Noichl\ProductConfigurator\Article\Exception\OptionNotAllowedException
+	 * @expectedException \Noichl\ProductConfigurator\OptionSet\Exception\OptionNotAllowedException
 	 */
 	public function testSameOptionCantBeAddedTwice() {
 
@@ -101,7 +102,7 @@ class ArticleWithMultipleOptionsTest extends \PHPUnit_Framework_TestCase {
 		$article->addOption($option2);
 		$article->addOption($option3);
 
-		$this->setExpectedException('\Noichl\ProductConfigurator\Article\Exception\OptionMaxNumberExceededException');
+		$this->setExpectedException('\Noichl\ProductConfigurator\OptionSet\Exception\OptionMaxNumberExceededException');
 		$article->addOption($option4);
 	}
 }

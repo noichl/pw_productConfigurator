@@ -1,5 +1,5 @@
 <?php
-namespace Noichl\ProductConfigurator\Article\Exception;
+namespace Noichl\ProductConfigurator\OptionSet\Exception;
 
 /**
  * Class OptionMaxNumberExceededException
